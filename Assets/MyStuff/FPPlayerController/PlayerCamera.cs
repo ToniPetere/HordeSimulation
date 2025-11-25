@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] private float baseMouseSensitivity = 1f;
-    [SerializeField] private ScriptableObject_OptionSettings soOptionSettings;
     private float calculatedMouseSensetivity;
 
     private float xRotation;
@@ -11,7 +10,6 @@ public class PlayerCamera : MonoBehaviour
     private void Start()
     {
         UpdateSensetivity();
-        soOptionSettings.PlayerCameraScript = this;
     }
     void FixedUpdate()
     {
@@ -29,7 +27,7 @@ public class PlayerCamera : MonoBehaviour
     public void UpdateSensetivity()
     {
         // In den Einstellungen wird der Multiplikator für die Empfindlichkeit eingestellt
-        calculatedMouseSensetivity = baseMouseSensitivity * ((soOptionSettings.MouseSensitivity * 3) + 1); // Komische Umrechnung, weil ich einen Wert zwischen 0 und 1 im Slider einstellen lassen möchte
+        calculatedMouseSensetivity = baseMouseSensitivity * ((0.5f * 3f) + 1f); // Komische Umrechnung, weil ich einen Wert zwischen 0 und 1 im Slider einstellen lassen möchte(0.5 war vorher eine Variable, welche zwischen 0 und 1 liegen konnte?)
         //Debug.Log("Mouse Sensetivity Updated!");
     }
 }

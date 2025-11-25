@@ -39,7 +39,14 @@ public class Character : MonoBehaviour, IDamageable
 
     public virtual void Die()
     {
-        Destroy(this.gameObject);
+        if (transform.CompareTag("Player"))
+        {
+            Debug.Log("Player took damage!");
+        } 
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
     #endregion
 
@@ -191,7 +198,14 @@ public class Character : MonoBehaviour, IDamageable
             return;
         }
         IDamageable targetHealth = target.GetComponent<IDamageable>();
-        targetHealth.TakeDamage(meleeDamage, this.transform);
+        if(targetHealth != null)
+        {
+            targetHealth.TakeDamage(meleeDamage, this.transform);
+        }
+        else
+        {
+            Debug.Log("Target: " + Target + " cant be Damaged!");
+        }
     }
     //private void Update()
     //{
