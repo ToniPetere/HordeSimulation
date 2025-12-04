@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChaseState : State
 {
-    public ChaseState(Character _User) : base(_User)
+    public ChaseState(Zombie _User) : base(_User)
     {
     }
 

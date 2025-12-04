@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStateMachine
+public class ZombieStateMachine
 {
     private State currentState;
     private Dictionary<State, List<Transition>> transitions;
 
-    private Character owner;
-    public Character Owner {  get { return owner; } }
+    private Zombie owner;
+    public Zombie Owner {  get { return owner; } }
 
     public State CurrentState { get { return currentState; } }
 
-    public CharacterStateMachine(State _startState, Dictionary<State, List<Transition>> _transitions, Character _owner)
+    public ZombieStateMachine(State _startState, Dictionary<State, List<Transition>> _transitions, Zombie _owner)
     {
         currentState = _startState;
         _startState.OnStateEnter();
@@ -49,11 +49,16 @@ public class CharacterStateMachine
 
     public void Tick()
     {
-        State nextState = GetNextState();
+        if(owner.ControllType != EZombieControllType.BehaviourDriven)
+            return;
 
+        //Check if the State should be changed
+        State nextState = GetNextState();
         if (nextState != null) ChangeState(nextState);
 
+        //if not run the current Statelogic/-behaviour
         currentState.OnStateUpdate();
+
 
         // Debug.Log("Current State: " + CurrentState.ToString());
     }

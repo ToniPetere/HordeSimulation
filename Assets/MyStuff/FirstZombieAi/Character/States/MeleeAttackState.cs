@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeAttackState : State
 {
-    public MeleeAttackState(Character _User) : base(_User)
+    public MeleeAttackState(Zombie _User) : base(_User)
     {
     }
 

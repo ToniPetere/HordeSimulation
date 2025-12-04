@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    public IdleState(Character _User) : base(_User)
+    public IdleState(Zombie _User) : base(_User)
     {
     }
 

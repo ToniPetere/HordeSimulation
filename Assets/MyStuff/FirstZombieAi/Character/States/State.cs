@@ -1,8 +1,8 @@
 public abstract class State
 {
-    protected Character user;
+    protected Zombie user;
 
-    public State(Character _User)
+    public State(Zombie _User)
     {
         user = _User;
     }

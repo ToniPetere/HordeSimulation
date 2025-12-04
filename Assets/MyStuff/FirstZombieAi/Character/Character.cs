@@ -2,8 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Character : MonoBehaviour, IDamageable
+public class Character : MonoBehaviour, IDamageable 
 {
+    // QUICK NOTE!!!
+    // This is no longer the BaseClass for the Zombies as it is not needed and unneccessary complex that way!!!
+
+
     // Setup:
     #region HealthSystem
     [SerializeField] private UI_Bar healthbar;
@@ -154,7 +158,12 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] public float VisionSquareRange = 100f; // For the enemy detection, when he is hit
     [HideInInspector] public float SquareDistanceToEnemy; // Will be set in the States(Chase and Attacks)
     [HideInInspector] public bool HasWalkPoint;
-    [HideInInspector] public Vector3 WalkPoint;
+    protected Vector3 walkPoint;
+    public virtual Vector3 WalkPoint
+    {
+        get { return walkPoint; }
+        set { walkPoint = value; }
+    }
 
     [Header("MeleeAttack State")]
     [SerializeField, Tooltip("not necessary needed! Just in case the user has a Weapon")] private GameObject meleeWeaponGameObject;
@@ -163,7 +172,7 @@ public class Character : MonoBehaviour, IDamageable
     private float meleeDamage;
     // public float MeleeAttackSpeed;
     #endregion
-    private void Awake()
+    protected virtual void Awake()
     {
         maxHealth = soCharacterStats.MaxHealth;
         currentHealth = maxHealth;

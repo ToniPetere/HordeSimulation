@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WalkState : State
 {
-    public WalkState(Character _User) : base(_User)
+    public WalkState(Zombie _User) : base(_User)
     {
     }
     public override void OnStateEnter()

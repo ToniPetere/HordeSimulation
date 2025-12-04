@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class GenerateWalkpointState : State
 {
-    Zombie zombieUser;
-    public GenerateWalkpointState(Character _User) : base(_User)
+    public GenerateWalkpointState(Zombie _User) : base(_User)
     {
     }
 
@@ -13,12 +13,11 @@ public class GenerateWalkpointState : State
     {
         base.OnStateEnter();
 
-        zombieUser = (Zombie)user;
 
-        if (!zombieUser.HasWalkPoint)
+        if (!user.HasWalkPoint)
         {
-            zombieUser.WalkPoint = GenerateNewWalkpoint(zombieUser.WalkpointRange);
-            zombieUser.HasWalkPoint = true;
+            user.WalkPoint = GenerateNewWalkpoint(user.WalkpointRange);
+            user.HasWalkPoint = true;
         }
     }
 
