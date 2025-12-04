@@ -20,11 +20,6 @@ public class ZombieStateMachine
         owner = _owner;
     }
 
-    //public void Initialize(State _startingState)
-    //{
-    //    currentState = _startingState;
-    //    currentState.OnStateEnter();
-    //}
     
     private State GetNextState()
     {

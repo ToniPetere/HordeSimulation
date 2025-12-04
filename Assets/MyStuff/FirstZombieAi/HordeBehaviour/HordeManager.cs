@@ -24,11 +24,15 @@ public class HordeManager : MonoBehaviour
 
     private IEnumerator GenerateWaypoints()
     {
-        yield return new WaitForSeconds(intervallForNewWaypoint);
+        while (true)
+        {
 
-        zombiesInHorde[0].WalkPoint = this.transform.position; // test if it works
-        Debug.Log(zombiesInHorde[0].name + " now Moves to: " + this.transform.position);
+            yield return new WaitForSeconds(intervallForNewWaypoint);
 
-        GenerateWaypoints();
+            zombiesInHorde[0].WalkPoint = this.transform.position; // test if it works
+            zombiesInHorde[0].HasWalkPoint = true;
+
+            Debug.Log(zombiesInHorde[0].name + " now Moves to: " + this.transform.position);
+        }
     }
 }

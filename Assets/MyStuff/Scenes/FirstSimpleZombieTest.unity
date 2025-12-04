@@ -1784,6 +1784,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607125342}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1628663557
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15687585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244651083007651357, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472772410852675562, guid: dac18623abe23ef4e8985e77744246bb,
+        type: 3}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dac18623abe23ef4e8985e77744246bb, type: 3}
 --- !u!1 &1732650149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2171,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 50182680496882229, guid: b85f3fbeae6781c4ebdd31d3eaf17500,
         type: 3}
+      propertyPath: intervallForNewWaypoint
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 50182680496882229, guid: b85f3fbeae6781c4ebdd31d3eaf17500,
+        type: 3}
       propertyPath: 'zombiesInHorde.Array.data[0]'
       value: 
       objectReference: {fileID: 1906881164}
@@ -2119,7 +2192,7 @@ PrefabInstance:
     - target: {fileID: 8796895223960870407, guid: b85f3fbeae6781c4ebdd31d3eaf17500,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796895223960870407, guid: b85f3fbeae6781c4ebdd31d3eaf17500,
         type: 3}
@@ -2175,3 +2248,4 @@ SceneRoots:
   - {fileID: 4091897317432378456}
   - {fileID: 2079294592}
   - {fileID: 33746180}
+  - {fileID: 1628663557}

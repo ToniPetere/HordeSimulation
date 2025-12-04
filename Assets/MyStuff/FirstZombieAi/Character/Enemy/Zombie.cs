@@ -151,7 +151,11 @@ public class Zombie : MonoBehaviour, IDamageable
     public virtual Vector3 WalkPoint
     {
         get { return walkPoint; }
-        set { walkPoint = value; }
+        set 
+        {
+            walkPoint = value;
+            WalkToWalkpoint();
+        }
     }
 
     [Header("MeleeAttack State")]
@@ -229,8 +233,42 @@ public class Zombie : MonoBehaviour, IDamageable
     #endregion
 
 
-    public void WalkTo()
+    public void WalkToWalkpoint()
     {
+        if (ControllType != EZombieControllType.HordeDriven)
+            return;
+
+
+
+        Animator.SetBool("IsIdle", false);
+
+        //Code from the WalkState(OnEnter):
+        Agent.isStopped = false;
+        Animator.SetBool("IsWalking", true);
         Agent.SetDestination(WalkPoint);
+
+        //Stop if the Walkpoint is reached:
+        StartCoroutine(CheckForWalkpointReached());
+    }
+
+    private IEnumerator CheckForWalkpointReached()
+    {
+        while (true)
+        {
+            if ((transform.position - WalkPoint).sqrMagnitude < 1f)
+            {
+                Debug.Log("Walkpoint Reached!");
+
+                // Code from the WalkState(OnExit):
+                Animator.SetBool("IsWalking", false);
+                HasWalkPoint = false;
+
+                Animator.SetBool("IsIdle", true);
+
+                yield break; // Stops the Coroutine
+            }
+
+            yield return null;
+        }
     }
 }
