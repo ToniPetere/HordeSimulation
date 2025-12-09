@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieBehaviour : MonoBehaviour
 {
     private List<Zombie> zombies;
-    private List<ZombieStateMachine> stateMachines = new List<ZombieStateMachine>();
+    [SerializeField] private List<ZombieStateMachine> stateMachines = new List<ZombieStateMachine>();
 
 
     private void Start()

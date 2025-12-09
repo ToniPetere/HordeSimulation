@@ -17,7 +17,7 @@ public class CheckForEnemy : MonoBehaviour
     {
         if (!other.gameObject.CompareTag(zombie.EnemyTag)) return;
 
-        // Debug.Log($"Found {character.EnemyTag}!");
+        Debug.Log($"Found {zombie.EnemyTag}!");
         Transform EnemyTransform = other.GetComponent<Transform>();
         enemysInRange.Add(EnemyTransform);
 
@@ -37,6 +37,6 @@ public class CheckForEnemy : MonoBehaviour
         {
             zombie.IsEnemyInRange = false;
         }
-        // Debug.Log($"is {character.EnemyTag} in Range: " + character.IsEnemyInRange);
+        // Debug.Log($"is {zombie.EnemyTag} in Range: " + zombie.IsEnemyInRange);
     }
 }
