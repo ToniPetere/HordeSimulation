@@ -42,7 +42,7 @@ public class ZombieStateMachine
         currentState.OnStateEnter();
     }
 
-    public void Tick()
+    public void Tick() // Behaviour driven: 
     {
         if(owner.ControllType != EZombieControllType.BehaviourDriven)
             return;

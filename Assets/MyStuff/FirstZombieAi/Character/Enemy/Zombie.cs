@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public class Zombie : MonoBehaviour, IDamageable
 {
@@ -225,15 +224,17 @@ public class Zombie : MonoBehaviour, IDamageable
         set
         { 
             //if (controllType == value) return; // idk if this is smart or bad
-
             controllType = value;
+
             // OnControlTypeChanged?.Invoke(this, controllType); //not needed rn
+
+            WalkpointReached();
         }
     }
     #endregion
 
 
-    public void WalkToWalkpoint()
+    public void WalkToWalkpoint() // Horde Behaviour:
     {
         if (ControllType != EZombieControllType.HordeDriven)
             return;
@@ -257,18 +258,36 @@ public class Zombie : MonoBehaviour, IDamageable
         {
             if ((transform.position - WalkPoint).sqrMagnitude < 1f)
             {
-                Debug.Log("Walkpoint Reached!");
+                //Debug.Log("Walkpoint Reached!");
 
-                // Code from the WalkState(OnExit):
-                Animator.SetBool("IsWalking", false);
-                HasWalkPoint = false;
-
-                Animator.SetBool("IsIdle", true);
-
+                WalkpointReached();
                 yield break; // Stops the Coroutine
             }
 
             yield return null;
+        }
+    }
+    private void WalkpointReached()
+    {
+        // Code from the WalkState(OnExit):
+        Animator.SetBool("IsWalking", false);
+        HasWalkPoint = false;
+        Agent.isStopped = true;
+
+        Animator.SetBool("IsIdle", true);
+    }
+
+
+    public bool FSM_Active = false;
+    private void Update()
+    {
+        if (ControllType == EZombieControllType.BehaviourDriven)
+        {
+            FSM_Active = true;
+        }
+        else if(ControllType == EZombieControllType.HordeDriven)
+        {
+            FSM_Active = false;
         }
     }
 }
