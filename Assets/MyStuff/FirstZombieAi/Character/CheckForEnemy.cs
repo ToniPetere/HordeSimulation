@@ -17,7 +17,7 @@ public class CheckForEnemy : MonoBehaviour
     {
         if (!other.gameObject.CompareTag(zombie.EnemyTag)) return;
 
-        Debug.Log($"Found {zombie.EnemyTag}!");
+        // Debug.Log($"Found {zombie.EnemyTag}!");
         Transform EnemyTransform = other.GetComponent<Transform>();
         enemysInRange.Add(EnemyTransform);
 
