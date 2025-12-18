@@ -1515,7 +1515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4dfb510a3ef41b4da3d37b99661aa1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveSpeedAuthoring
-  value: 5
+  moveSpeed: 5
+  rotationSpeed: 10
 --- !u!136 &1091198364
 CapsuleCollider:
   m_ObjectHideFlags: 0
