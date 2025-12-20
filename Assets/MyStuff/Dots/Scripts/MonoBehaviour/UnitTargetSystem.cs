@@ -9,7 +9,7 @@ public class UnitTargetSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 playerPosition = Camera.main.transform.position; // The player hold the Main Camera, so that indicates where the player is
-            playerPosition.y = 0;
+            playerPosition.y = 0f;
 
             EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager; 
             EntityQuery entityQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<UnitMover>().Build(entityManager);
