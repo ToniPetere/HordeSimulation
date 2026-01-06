@@ -15,10 +15,13 @@ partial struct FindTargetSystem : ISystem
         NativeList<DistanceHit> distanceHitList = new NativeList<DistanceHit>(Allocator.Temp);
 
         foreach((RefRO<LocalTransform> localTransform,
-                RefRO<FindTarget> findTarget)
+                RefRO<FindTarget> findTarget,
+                RefRW<Target> target)
                 in SystemAPI.Query<
                     RefRO<LocalTransform>, 
-                    RefRO<FindTarget>>())
+                    RefRO<FindTarget>,
+                    RefRW<Target>
+                    >())
         {
             distanceHitList.Clear();
             CollisionFilter collisionFilter = new CollisionFilter
@@ -28,7 +31,6 @@ partial struct FindTargetSystem : ISystem
                 GroupIndex = 0
             };
 
-            Debug.Log("-");
             if(collisionWorld.OverlapSphere(localTransform.ValueRO.Position, findTarget.ValueRO.range, ref distanceHitList, collisionFilter))
             {
                 foreach(DistanceHit distanceHit in distanceHitList)
@@ -36,8 +38,8 @@ partial struct FindTargetSystem : ISystem
                     Unit targetUnit = SystemAPI.GetComponent<Unit>(distanceHit.Entity);
                     if(targetUnit.faction == findTarget.ValueRO.targetFaction)
                     {
-                        // Debug.Log(distanceHit.Entity); -> Thows an error?
-                        // Valid Target!
+                        // Valid Target! -> Not necessary the closest one! Add logic for that if wanted!
+                        target.ValueRW.targetEntity = distanceHit.Entity;
                     }
                 }
             }
