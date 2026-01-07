@@ -12,7 +12,7 @@ partial struct PlayerProxySyncSystem : ISystem
     {
         Transform playerTransform = PlayerProxyAuthoring.Instance.transform;
 
-        RefRW<PlayerPosition> proxy = SystemAPI.GetSingletonRW<PlayerPosition>();
-        proxy.ValueRW.Value = playerTransform.position;
+        RefRW<PlayerPosition> playerPosition = SystemAPI.GetSingletonRW<PlayerPosition>();
+        playerPosition.ValueRW.Value = playerTransform.position;
     }
 }

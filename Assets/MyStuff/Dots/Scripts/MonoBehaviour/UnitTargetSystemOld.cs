@@ -6,6 +6,7 @@ using UnityEngine;
 //Alter Ansatz:
 public class UnitTargetSystemOld : MonoBehaviour
 {
+    /*
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -27,5 +28,6 @@ public class UnitTargetSystemOld : MonoBehaviour
             entityQuery.CopyFromComponentDataArray(unitMoverArray);
         }
     }
+    */
 }
 //Glaube es war nötig, dass dies ein Monobehavior war, weil die Mausposition/Input nicht so einfach in dots ausgelesen werden kann. Not sure tho

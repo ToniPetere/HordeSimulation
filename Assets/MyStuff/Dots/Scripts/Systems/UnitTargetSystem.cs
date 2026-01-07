@@ -8,6 +8,7 @@ partial struct UnitTargetSystem : ISystem
     {
         // Player Singleton lesen
         float3 playerPos = SystemAPI.GetSingleton<PlayerPosition>().Value;
+        playerPos.y = 0; // set this to 0 Manually, so zombies dont fly -> Maybe change the ZombieMover System at some point...
 
         float chaseRangeSq = 10f * 10f;
 

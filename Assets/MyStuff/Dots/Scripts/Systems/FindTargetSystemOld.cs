@@ -3,10 +3,10 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Physics;
 using Unity.Transforms;
-using UnityEngine;
 
-partial struct FindTargetSystem : ISystem
+partial struct FindTargetSystemOld : ISystem
 {
+    /*
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
@@ -44,7 +44,6 @@ partial struct FindTargetSystem : ISystem
                 }
             }
         }
-
-
     }
+    */
 }
