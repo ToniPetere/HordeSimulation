@@ -6,6 +6,8 @@ using Unity.Transforms;
 
 partial struct UnitMoverSystem : ISystem
 {
+    public const float REACHED_TARGET_POSITION_DISTANCE_SQ = 2f * 2f;
+
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
@@ -64,15 +66,17 @@ partial struct UnitMoverSystem : ISystem
 public partial struct UnitMoverJob : IJobEntity
 {
     public float deltaTime;
-
-    public void Execute(ref LocalTransform _localTransform, in UnitMover _unitMover, ref PhysicsVelocity _physicsVelocity) // ref = ReadWrite, in = ReadOnly
+                                                         // in -> ref, damit ich hasTarget umschreiben kann?
+    public void Execute(ref LocalTransform _localTransform, ref UnitMover _unitMover, ref PhysicsVelocity _physicsVelocity) // ref = ReadWrite, in = ReadOnly
     {
         float3 moveDirection = _unitMover.targetPosition - _localTransform.Position; // Direction Vector for the Unit
-        float reachedTargetDistanceSqr = 4f;
-        if(math.lengthsq(moveDirection) < reachedTargetDistanceSqr)
+        float reachedTargetDistanceSqr = UnitMoverSystem.REACHED_TARGET_POSITION_DISTANCE_SQ;
+        if(math.lengthsq(moveDirection) <= reachedTargetDistanceSqr) // if targetLocation reached:
         {
             _physicsVelocity.Linear = float3.zero; // No deltaTime needed here, because Physics already makes it framerate independant
             _physicsVelocity.Angular = float3.zero;
+
+            _unitMover.hasTarget = false; // Because of this Unitmover has to be a Reference and not just an input -> Maybe bad??? Idk
             return;
         }
 

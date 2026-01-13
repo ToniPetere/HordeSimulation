@@ -13,17 +13,18 @@ partial struct UnitTargetSystem : ISystem
         float chaseRangeSq = 10f * 10f;
 
         foreach ((
-            RefRO<LocalTransform> transform,
-            RefRW<UnitMover> mover
+            RefRO<LocalTransform> localTransform,
+            RefRW<UnitMover> unitMover
         ) in SystemAPI.Query<
             RefRO<LocalTransform>,
             RefRW<UnitMover>>())
         {
-            float distSq = math.distancesq(transform.ValueRO.Position, playerPos);
+            float distSq = math.distancesq(localTransform.ValueRO.Position, playerPos);
 
             if (distSq <= chaseRangeSq)
             {
-                mover.ValueRW.targetPosition = playerPos;
+                unitMover.ValueRW.targetPosition = playerPos;
+                unitMover.ValueRW.hasTarget = true;
             }
         }
     }

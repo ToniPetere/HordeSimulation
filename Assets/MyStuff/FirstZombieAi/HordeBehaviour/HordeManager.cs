@@ -14,7 +14,7 @@ public class HordeManager : MonoBehaviour
         // Or add logic to spawn a specific amount of Zombies, what this horde should exist off
 
         //after all Zombies are added/spawned:
-        foreach (Zombie zombie in zombiesInHorde)
+        foreach (Zombie zombie in zombiesInHorde) // Make sure that zombiesInHorde is properly setup and contains all Zombies, as it may just gets filled rn(in the awake)!!!
         {
             zombie.ControllType = EZombieControllType.HordeDriven;
         }

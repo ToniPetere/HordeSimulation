@@ -16,6 +16,7 @@ partial struct ZombieSpawnerSystem : ISystem
                 RefRO<LocalTransform>,
                 RefRW<ZombieSpawner>>())
         {
+            // Condition when to spawn a Zombie:
             zombieSpawner.ValueRW.timer -= SystemAPI.Time.DeltaTime;
             if(zombieSpawner.ValueRO.timer > 0f)
             {
@@ -23,10 +24,9 @@ partial struct ZombieSpawnerSystem : ISystem
             }
             zombieSpawner.ValueRW.timer = zombieSpawner.ValueRO.timerMax;
 
-
-           Entity zombieEntity = state.EntityManager.Instantiate(entitiesReferences.zombiePrefabEntity);
+            //Spawn Zombie:
+            Entity zombieEntity = state.EntityManager.Instantiate(entitiesReferences.zombiePrefabEntity);
             SystemAPI.SetComponent(zombieEntity, LocalTransform.FromPosition(localTransform.ValueRO.Position));
-
         }
     }
 }
