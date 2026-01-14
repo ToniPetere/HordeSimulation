@@ -14,7 +14,8 @@ partial struct ZombieSpawnerSystem : ISystem
             RefRW<ZombieSpawner> zombieSpawner)
             in SystemAPI.Query<
                 RefRO<LocalTransform>,
-                RefRW<ZombieSpawner>>())
+                RefRW<ZombieSpawner>
+                >())
         {
             // Condition when to spawn a Zombie:
             zombieSpawner.ValueRW.timer -= SystemAPI.Time.DeltaTime;
