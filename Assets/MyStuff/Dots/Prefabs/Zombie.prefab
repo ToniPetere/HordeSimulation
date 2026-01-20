@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 6358520483196296631}
   - component: {fileID: 1545491077464545847}
   - component: {fileID: 12268548935184706}
+  - component: {fileID: 1896955699552164346}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -242,3 +243,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6328d7498a66f4589c1c80cfb2a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HordeMemberAuthoring
+  hordeGameObject: {fileID: 0}
+--- !u!114 &1896955699552164346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177933444589336988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b36dc633036ab48b815a5ea606a3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackAuthoring
+  timerMax: 0.5
+  damageAmount: 1
+  attackRange: 2

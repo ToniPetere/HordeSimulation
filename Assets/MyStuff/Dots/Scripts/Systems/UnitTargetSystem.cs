@@ -2,7 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-partial struct UnitTargetSystem : ISystem
+partial struct ZombieTargetPlayerSystem : ISystem // original Name was "UnitTargetSystem"!!!
 {
     public void OnUpdate(ref SystemState state)
     {
@@ -19,9 +19,9 @@ partial struct UnitTargetSystem : ISystem
             RefRO<LocalTransform>,
             RefRW<UnitMover>>())
         {
-            float distSq = math.distancesq(localTransform.ValueRO.Position, playerPos);
+            float distSq = math.distancesq(localTransform.ValueRO.Position, playerPos); // Check distance to the player
 
-            if (distSq <= chaseRangeSq)
+            if (distSq <= chaseRangeSq) // If the player is close enough, chase him
             {
                 unitMover.ValueRW.targetPosition = playerPos;
                 unitMover.ValueRW.hasTarget = true;

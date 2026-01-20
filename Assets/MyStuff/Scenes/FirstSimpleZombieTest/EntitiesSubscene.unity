@@ -679,6 +679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6512967974092630358, guid: 5f5bffac57477d14895a356b9a0861b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

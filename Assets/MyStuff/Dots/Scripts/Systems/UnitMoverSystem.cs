@@ -73,6 +73,7 @@ public partial struct UnitMoverJob : IJobEntity
         float reachedTargetDistanceSqr = UnitMoverSystem.REACHED_TARGET_POSITION_DISTANCE_SQ;
         if(math.lengthsq(moveDirection) <= reachedTargetDistanceSqr) // if targetLocation reached:
         {
+            //Stop movement:
             _physicsVelocity.Linear = float3.zero; // No deltaTime needed here, because Physics already makes it framerate independant
             _physicsVelocity.Angular = float3.zero;
 
@@ -80,7 +81,7 @@ public partial struct UnitMoverJob : IJobEntity
             return;
         }
 
-        moveDirection = math.normalize(moveDirection);                           // Direction Vector Normalized
+        moveDirection = math.normalize(moveDirection); // Direction Vector Normalized
 
         // Unit should look to the direction its moving
         _localTransform.Rotation = 
