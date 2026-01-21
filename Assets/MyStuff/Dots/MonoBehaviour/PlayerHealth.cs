@@ -34,9 +34,9 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0;
             // Player dead:
-            Debug.Log("Player died!");
+            //Debug.Log("Player died!");
         }
 
-        Debug.Log("Player Health: " +  currentHealth);
+        //Debug.Log("Player Health: " +  currentHealth);
     }
 }
