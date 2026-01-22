@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour
         {
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hit, range))
             {
-                if (hit.collider.TryGetComponent(out EntityReference entityRef))
+                if (hit.collider.TryGetComponent(out ZombieView entityRef))
                 {
                     entityManager.AddComponentData(entityRef.Entity,
                         new PendingDamage { value = damage });
