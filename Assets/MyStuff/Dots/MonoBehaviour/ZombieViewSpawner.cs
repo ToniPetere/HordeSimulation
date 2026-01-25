@@ -31,6 +31,8 @@ public class ZombieViewSpawner : MonoBehaviour
             LocalTransform localTransform = entityManager.GetComponentData<LocalTransform>(entity);
 
             GameObject zombieGO = Instantiate(zombieGOPrefab, localTransform.Position, Quaternion.identity);
+            Physics.SyncTransforms(); // Ist nötig, damit meine ZombieGOs vom Raycast getroffen werden können!!! scheinbar ist der Collider für Physik berechnungen sonst nicht an der korrekten position und es funktioniert nicht?!??
+
 
             ZombieView zombieView = zombieGO.GetComponent<ZombieView>(); // The prefab has to have the ZombieView Script!
             zombieView.Entity = entity;

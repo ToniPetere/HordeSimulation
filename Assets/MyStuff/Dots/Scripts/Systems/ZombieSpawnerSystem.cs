@@ -15,7 +15,6 @@ partial struct ZombieSpawnerSystem : ISystem
     // ----------------------------------------------
 
 
-
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
@@ -23,7 +22,7 @@ partial struct ZombieSpawnerSystem : ISystem
 
         EntitiesReferences entitiesReferences = SystemAPI.GetSingleton<EntitiesReferences>();
 
-        foreach((
+        foreach ((
             RefRO<LocalTransform> localTransform,
             RefRW<ZombieSpawner> zombieSpawner)
             in SystemAPI.Query<
@@ -33,11 +32,12 @@ partial struct ZombieSpawnerSystem : ISystem
         {
             // Condition when to spawn a Zombie: (currently a timer)
             zombieSpawner.ValueRW.timer -= SystemAPI.Time.DeltaTime;
-            if(zombieSpawner.ValueRO.timer > 0f)
+            if (zombieSpawner.ValueRO.timer > 0f)
             {
                 continue;
             }
-            zombieSpawner.ValueRW.timer = zombieSpawner.ValueRO.timerMax;
+            //zombieSpawner.ValueRW.timer = zombieSpawner.ValueRO.timerMax;
+            zombieSpawner.ValueRW.timer = float.MaxValue; // Debug, to deaktivate the spawner
 
             //Spawn Zombie:
             //Entity zombieEntity = state.EntityManager.Instantiate(entitiesReferences.zombiePrefabEntity); // Why this works without a ecb I dont know
@@ -45,11 +45,12 @@ partial struct ZombieSpawnerSystem : ISystem
 
             //Spawn Zombie via ecb:
             Entity zombieEntity = entityCommandBuffer.Instantiate(entitiesReferences.zombiePrefabEntity); //This throws an error though. Something like: "Playback() is missing"
-            entityCommandBuffer.SetComponent(zombieEntity, LocalTransform.FromPosition(localTransform.ValueRO.Position)); 
+            entityCommandBuffer.SetComponent(zombieEntity, LocalTransform.FromPosition(localTransform.ValueRO.Position));
 
             // Not allowed: state.EntityManager.AddComponent<NewZombieTag>(zombieEntity); 
             // You have to use a CommandBuffer:
             entityCommandBuffer.AddComponent<NewZombieTag>(zombieEntity); // Add this tag, to mark the Zombie to also instantiate an according GO for the Visuals/Physics
         }
+
     }
 }

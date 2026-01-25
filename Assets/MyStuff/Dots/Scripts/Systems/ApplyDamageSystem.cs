@@ -22,8 +22,6 @@ partial struct ApplyDamageSystem : ISystem
             health.ValueRW.healthAmount -= pendingDamage.ValueRO.value;
 
             entityCommandBuffer.RemoveComponent<PendingDamage>(entity);
-
-            entityCommandBuffer.Playback(state.EntityManager);
         }
     }
 }
