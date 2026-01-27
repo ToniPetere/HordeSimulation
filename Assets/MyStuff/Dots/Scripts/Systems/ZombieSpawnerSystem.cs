@@ -30,16 +30,21 @@ partial struct ZombieSpawnerSystem : ISystem
                 RefRW<ZombieSpawner>
                 >())
         {
+            if(zombieSpawner.ValueRO.zombiesToSpawn <= 0) continue; // Stop when all zombies are spawned
+
+
             // Condition when to spawn a Zombie: (currently a timer)
             zombieSpawner.ValueRW.timer -= SystemAPI.Time.DeltaTime;
             if (zombieSpawner.ValueRO.timer > 0f)
             {
                 continue;
             }
-            //zombieSpawner.ValueRW.timer = zombieSpawner.ValueRO.timerMax;
-            zombieSpawner.ValueRW.timer = float.MaxValue; // Debug, to deaktivate the spawner
+            zombieSpawner.ValueRW.timer = zombieSpawner.ValueRO.timerMax;
+            // zombieSpawner.ValueRW.timer = float.MaxValue; // Debug, to deaktivate the spawner after one spawn
+            --zombieSpawner.ValueRW.zombiesToSpawn;
 
-            //Spawn Zombie:
+
+            //Spawn Zombie(without ecb -> Throws errors):
             //Entity zombieEntity = state.EntityManager.Instantiate(entitiesReferences.zombiePrefabEntity); // Why this works without a ecb I dont know
             //SystemAPI.SetComponent(zombieEntity, LocalTransform.FromPosition(localTransform.ValueRO.Position)); // This seems to work without a ecb, propably because something existing just gets modified
 

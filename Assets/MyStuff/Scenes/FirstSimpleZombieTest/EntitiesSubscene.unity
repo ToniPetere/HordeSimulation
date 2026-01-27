@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 1558952084}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76410f88f0eefae4981e2155d31a3c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HordeAuthoring
-  timerMax: 8
-  newWaypointRange: 20
-  joinRadius: 30
+  timerMax: 12
+  newWaypointRange: 50
+  joinRadius: 100
 --- !u!1 &1650521658
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +313,7 @@ PrefabInstance:
     - target: {fileID: 924794950585846131, guid: 5f5bffac57477d14895a356b9a0861b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 924794950585846131, guid: 5f5bffac57477d14895a356b9a0861b4,
         type: 3}
@@ -323,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 924794950585846131, guid: 5f5bffac57477d14895a356b9a0861b4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 924794950585846131, guid: 5f5bffac57477d14895a356b9a0861b4,
         type: 3}
@@ -360,10 +360,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4739045070403304368, guid: 5f5bffac57477d14895a356b9a0861b4,
+        type: 3}
+      propertyPath: timerMax
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739045070403304368, guid: 5f5bffac57477d14895a356b9a0861b4,
+        type: 3}
+      propertyPath: zombiesToSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6512967974092630358, guid: 5f5bffac57477d14895a356b9a0861b4,
         type: 3}
       propertyPath: m_Name
       value: ZombieSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512967974092630358, guid: 5f5bffac57477d14895a356b9a0861b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
