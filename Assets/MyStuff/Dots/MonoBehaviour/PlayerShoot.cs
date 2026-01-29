@@ -11,7 +11,6 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-
     }
 
     void Update()
@@ -28,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
 
                 if(hit.collider != null)
                 {
-                    Debug.Log("Hit: " + hit.collider.GetComponentInParent<Transform>().name);
+                    // Debug.Log("Hit: " + hit.collider.GetComponentInParent<Transform>().name);
                 }
 
 
@@ -36,7 +35,7 @@ public class PlayerShoot : MonoBehaviour
                     {
                     entityManager.AddComponentData(entityRef.Entity,
                         new PendingDamage { value = damage });
-                    Debug.Log("Damaged Entity with " + damage + " damage!");
+                    //Debug.Log("Damaged Entity with " + damage + " damage!");
                 }
             }
         }

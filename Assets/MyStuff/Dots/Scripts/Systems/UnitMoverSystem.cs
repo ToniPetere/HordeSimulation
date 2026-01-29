@@ -67,7 +67,7 @@ public partial struct UnitMoverJob : IJobEntity
 {
     public float deltaTime;
                                                          // in -> ref, damit ich hasTarget umschreiben kann?
-    public void Execute(ref LocalTransform _localTransform, ref UnitMover _unitMover, ref PhysicsVelocity _physicsVelocity) // ref = ReadWrite, in = ReadOnly
+    public void Execute(ref LocalTransform _localTransform, ref UnitMover _unitMover, ref PhysicsVelocity _physicsVelocity, ref ZombieAnimationState _zombieAnimationState) // ref = ReadWrite, in = ReadOnly
     {
         float3 moveDirection = _unitMover.targetPosition - _localTransform.Position; // Direction Vector for the Unit
         float reachedTargetDistanceSqr = UnitMoverSystem.REACHED_TARGET_POSITION_DISTANCE_SQ;
@@ -78,6 +78,7 @@ public partial struct UnitMoverJob : IJobEntity
             _physicsVelocity.Angular = float3.zero;
 
             _unitMover.hasTarget = false; // Because of this Unitmover has to be a Reference and not just an input -> Maybe bad??? Idk
+            _zombieAnimationState.Value = EZombieAnimationState.Idle;
             return;
         }
 
@@ -91,5 +92,7 @@ public partial struct UnitMoverJob : IJobEntity
 
         _physicsVelocity.Linear = moveDirection * _unitMover.moveSpeed; // No deltaTime needed here, because Physics already makes it framerate independant
         _physicsVelocity.Angular = float3.zero;
+
+        _zombieAnimationState.Value = EZombieAnimationState.Walking;
     }
 }

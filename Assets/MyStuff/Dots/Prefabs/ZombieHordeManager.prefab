@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5219079041372829145
+--- !u!1 &4997246724860725838
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3515719505045696988}
-  - component: {fileID: 7153534670264605741}
-  - component: {fileID: 5762990814704709230}
+  - component: {fileID: 225543023829909293}
+  - component: {fileID: 7199973539128269632}
+  - component: {fileID: 7929314621553251544}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3515719505045696988
+  m_IsActive: 0
+--- !u!4 &225543023829909293
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219079041372829145}
+  m_GameObject: {fileID: 4997246724860725838}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 924794950585846131}
+  m_Father: {fileID: 9060447428187591477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &7153534670264605741
+--- !u!23 &7199973539128269632
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219079041372829145}
+  m_GameObject: {fileID: 4997246724860725838}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ac931751f5d38e4f952a8514fdcf9b8, type: 2}
+  - {fileID: 2100000, guid: 90b91e644bd6c664cbbaf7c11e2a1c35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,15 +81,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &5762990814704709230
+--- !u!33 &7929314621553251544
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219079041372829145}
+  m_GameObject: {fileID: 4997246724860725838}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &6512967974092630358
+--- !u!1 &6378533516933714658
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,41 +97,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 924794950585846131}
-  - component: {fileID: 4739045070403304368}
+  - component: {fileID: 9060447428187591477}
+  - component: {fileID: 1089818575144175099}
   m_Layer: 0
-  m_Name: ZombieDotsSpawner
+  m_Name: ZombieHordeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &924794950585846131
+--- !u!4 &9060447428187591477
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512967974092630358}
+  m_GameObject: {fileID: 6378533516933714658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.49877, y: 0, z: -19.67815}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3515719505045696988}
+  - {fileID: 225543023829909293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4739045070403304368
+--- !u!114 &1089818575144175099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512967974092630358}
+  m_GameObject: {fileID: 6378533516933714658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef5ca176f40c34c4190d6d9f1850d496, type: 3}
+  m_Script: {fileID: 11500000, guid: 76410f88f0eefae4981e2155d31a3c7d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawnerAuthoring
-  timerMax: 3
+  m_EditorClassIdentifier: Assembly-CSharp::HordeAuthoring
+  timerMax: 8
+  newWaypointRange: 20
+  joinRadius: 50

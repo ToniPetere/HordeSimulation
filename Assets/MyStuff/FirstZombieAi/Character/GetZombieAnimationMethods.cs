@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetCharacterAnimationMethods : MonoBehaviour
+public class GetZombieAnimationMethods : MonoBehaviour
 {
-    private Character character;
+    private Zombie zombie;
 
     private void Awake()
     {
-        character = GetComponentInParent<Character>();
+        zombie = GetComponentInParent<Zombie>();
     }
 
     public void DoMeleeAttack(AnimationEvent animationEvent)
     {
-        character.RunMeleeAttack();
+        zombie.RunMeleeAttack();
         // character.SpawnMeleeAttack();
     }
 

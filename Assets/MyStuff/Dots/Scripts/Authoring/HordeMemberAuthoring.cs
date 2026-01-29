@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HordeMemberAuthoring : MonoBehaviour
 {
-    public GameObject hordeGameObject;
-
     public class Baker : Baker<HordeMemberAuthoring>
     {
         public override void Bake(HordeMemberAuthoring authoring)
@@ -13,7 +11,7 @@ public class HordeMemberAuthoring : MonoBehaviour
             Entity entity = GetEntity(TransformUsageFlags.Dynamic);
             AddComponent(entity, new HordeMember
             {
-                hordeEntity = GetEntity(authoring.hordeGameObject, TransformUsageFlags.Dynamic),
+
             });
         }
     }

@@ -10,6 +10,15 @@ public class ZombieView : MonoBehaviour
     private LocalTransform localTransform;
 
 
+    private Animator animator;
+    private EZombieAnimationState currentState;
+    private EZombieAnimationState lastState;
+
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     void FixedUpdate()
     {
         // Does the according entity to this Visuals exist?
@@ -25,5 +34,24 @@ public class ZombieView : MonoBehaviour
         transform.position = localTransform.Position;
         transform.rotation = localTransform.Rotation;
         Physics.SyncTransforms(); // This is an expensive Methode, that shouldnt be called in a Update Methode!!!!!!!!!!!! However its my only solution rn...
+
+        if (!EntityManager.HasComponent<ZombieAnimationState>(Entity)) // Check if the entity holds the data to read the state
+        {
+            return;
+        }
+
+        //Get the current State from the Zombie:
+        currentState = EntityManager.GetComponentData<ZombieAnimationState>(Entity).Value;
+        if(currentState == lastState) // if nothing has changed, nothing has to be done
+        { 
+            return;
+        }
+
+        // Set the values in the Animator
+        animator.SetBool("IsIdle", currentState == EZombieAnimationState.Idle);
+        animator.SetBool("IsWalking", currentState == EZombieAnimationState.Walking);
+        animator.SetBool("IsAttackingMelee", currentState == EZombieAnimationState.Attacking);
+
+        lastState = currentState;
     }
 }

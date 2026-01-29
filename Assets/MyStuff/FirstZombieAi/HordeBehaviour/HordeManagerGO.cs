@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HordeManager : MonoBehaviour
+public class HordeManagerGO : MonoBehaviour
 {
     [SerializeField] private List<Zombie> zombiesInHorde = new List<Zombie>(); // RN Manual adding of Zombies to the List
     [SerializeField] private float intervallForNewWaypoint = 5f; // Is now a fixed number, maybe make it more felxible and depending on the Hordesize. This is not a good Solution!

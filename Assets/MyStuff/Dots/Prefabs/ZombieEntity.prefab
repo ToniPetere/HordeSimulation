@@ -101,13 +101,13 @@ GameObject:
   - component: {fileID: 2912828425955998413}
   - component: {fileID: 5052414644935550206}
   - component: {fileID: 174192923055741720}
-  - component: {fileID: 1152137320193385134}
   - component: {fileID: 6358520483196296631}
   - component: {fileID: 1545491077464545847}
   - component: {fileID: 12268548935184706}
   - component: {fileID: 1896955699552164346}
+  - component: {fileID: -1145577890516843622}
   m_Layer: 0
-  m_Name: ZombieDots
+  m_Name: ZombieEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,19 +193,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1152137320193385134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8177933444589336988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dff793869ac56d4cb7f6e59f7749939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitAuthoring
-  faction: 1
 --- !u!114 &6358520483196296631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6328d7498a66f4589c1c80cfb2a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HordeMemberAuthoring
-  hordeGameObject: {fileID: 0}
 --- !u!114 &1896955699552164346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +245,16 @@ MonoBehaviour:
   timerMax: 0.5
   damageAmount: 1
   attackRange: 2
+--- !u!114 &-1145577890516843622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177933444589336988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bd0816f1094ba47a6850641ea42b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieAnimationStateAuthoring
+  startingState: 0
